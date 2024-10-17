@@ -1,101 +1,95 @@
+"use client";
 import Image from "next/image";
+import Featured from "./featured/page";
+import { useState } from "react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/16/solid";
+import Products from "./product/page";
+import New from "./new/page";
+import Test from "./testimonial/page";
+import Footer from "./footer/page";
 
+// components/WatchSection.js
 export default function Home() {
+  const [navbar, setNavbar] = useState(false);
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main className="bg-slate-950 h-max md:w-[1280px] md:h-[712px] lg:w-[100%]">
+      <div className="w-[100%] flex justify-between p-8 pb-2 text-[#757570]">
+        <div className="font-semibold font-Poppins text-2xl md:text-[200%]">
+          ELEGENT <span className="text-white">110</span>{" "}
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        <div>
+          <nav className="text-white space-x-6 md:pr-[2rem] text-2xl md:text-[150%] hidden sm:flex md:block">
+            <a href="#" className="hover:text-[#F6FF77] font-light">
+              HOME
+            </a>
+            <a href="#" className="hover:text-[#F6FF77] font-light">
+              FEATURED
+            </a>
+            <a href="#" className="hover:text-[#F6FF77] font-light">
+              PRODUCTS
+            </a>
+            <a href="#" className="hover:text-[#F6FF77] font-light">
+              NEW
+            </a>
+          </nav>
+        </div>
+        <div className="md:hidden">
+          <button
+            className=" text-white hover:text-orange-300 absolute cursor-pointer top-[2rem] right-[1rem] w-[2rem] h-[2rem]"
+            onClick={() => setNavbar(!navbar)}
+          >
+            {navbar ? (
+              <XMarkIcon className="text-xl " />
+            ) : (
+              <Bars3Icon className="text-xl " />
+            )}
+          </button>
+        </div>
+      </div>
+
+      {/* HEADER SECTION OVER */}
+
+      <div className="space-x-4 h-[80%] w-[80%] flex-col-1 md:flex text-white mx-16 p-8 text-center col-span-8 md:text-left items-center overflow-hidden gap-x-4">
+        <div className="h-[80%] w-[80%] m-6 text-wrap pt-6">
+          <h1 className="font-bold md:pl-16 md:pb-4 text-2xl md:text-4xl text-center md:text-start font-Merienda">
+            Aynn Collections
+          </h1>
+          <p className="text-xl md:text-2xl pt-4 font-light place-content-center text-center md:text-start md:pl-16 text-stone-50">
+            Latest arrival of the new imported watches of the B720 series, with
+            a modern and resistant design.
+          </p>
+          <p className="md:pl-16 pt-8 text-center md:text-start text-[#F6FF77] text-2xl ">
+            $1245
+          </p>
+
+          <button className="bg-[#f6f8d4] hover:bg-[#F6FF77]  px-3 py-2 items-center md:ml-16 rounded-sm cursor-pointer  font-semibold text-xl text-black ">
+            Discover
+          </button>
+          <button className="bg-[#F6FF77] hover:bg-[#f6f8d4]  px-3 py-2 ml-4 mt-8 rounded-sm cursor-pointer font-semibold text-xl text-black ">
+            ADD TO CART
+          </button>
+        </div>
+
+        {/* IMAGE DIV */}
+        <div className="h-[75%] w-[80%] bg-[#272626] border shadow-md shadow-black relative place-content-center">
+          <div className="h-[80%] w-[90%] bg-slate-950   justify-center">
+            <Image
+              src="/gww.png"
+              alt="main watch"
+              objectFit="cover"
+              height={600}
+              width={720}
+              className="absolute -mx-14 -my-4 items-center "
+            />
+          </div>
+        </div>
+      </div>
+
+      <Featured />
+      <Products />
+       <New />
+     <Test />
+     <Footer />
+    </main>
   );
 }

@@ -8,9 +8,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      fontFamily: {
+        Poppins : ["Poppins, sans-serif"],
+        Roboto: ['Roboto', "sans-serif"],
+        StyleScript: ["Style Script" ,"cursive"] ,
+       Merienda: ["Merienda", 'cursive']
+  
       },
     },
   },
